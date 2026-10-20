@@ -7,16 +7,20 @@ import {
 } from '@/types/support-ticket.types';
 import { SingleResponse } from '@/types/job-application.types';
 
+export interface GetTicketsQueryParams {
+  page?: number;
+  limit?: number;
+  status?: string;
+  search?: string;
+}
+
 export const SupportTicketService = {
-  getMyTickets: async (params?: {
-    page?: number;
-    limit?: number;
-    status?: string;
-  }): Promise<SupportTicketsResponse> => {
+  getMyTickets: async (params?: GetTicketsQueryParams): Promise<SupportTicketsResponse> => {
     const query = new URLSearchParams();
     if (params?.page) query.append('page', String(params.page));
     if (params?.limit) query.append('limit', String(params.limit));
     if (params?.status && params.status !== 'ALL') query.append('status', params.status);
+    if (params?.search && params.search.trim()) query.append('search', params.search.trim());
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
     const res: any = await api.get(`/support-tickets/my-tickets${queryString}`);
@@ -53,15 +57,12 @@ export const SupportTicketService = {
   /**
    * Admin: Get all tickets across all users
    */
-  getAllTicketsAdmin: async (params?: {
-    page?: number;
-    limit?: number;
-    status?: string;
-  }): Promise<SupportTicketsResponse> => {
+  getAllTicketsAdmin: async (params?: GetTicketsQueryParams): Promise<SupportTicketsResponse> => {
     const query = new URLSearchParams();
     if (params?.page) query.append('page', String(params.page));
     if (params?.limit) query.append('limit', String(params.limit));
     if (params?.status && params.status !== 'ALL') query.append('status', params.status);
+    if (params?.search && params.search.trim()) query.append('search', params.search.trim());
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
     const res: any = await api.get(`/support-tickets${queryString}`);

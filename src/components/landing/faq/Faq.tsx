@@ -14,7 +14,7 @@ export default function Faq() {
     <section id="faq" className="py-14 md:py-18 bg-background text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-          
+
           <div className="w-full md:w-1/3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C3627]/10 dark:bg-[#A3B18A]/15 text-[#1C3627] dark:text-[#A3B18A] text-xs font-bold uppercase tracking-wider mb-3 border border-[#1C3627]/20 dark:border-[#A3B18A]/20">
               <HelpCircle className="w-3.5 h-3.5" />
@@ -34,7 +34,7 @@ export default function Faq() {
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          
+
           <div className="w-full md:w-2/3">
             <Accordion className="w-full border-t border-border/20">
               <AccordionItem value="item-1" className="border-border/20">

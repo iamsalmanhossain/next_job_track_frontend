@@ -38,7 +38,7 @@ export default function Faq() {
           <div className="w-full md:w-2/3">
             <Accordion className="w-full border-t border-border/20">
               <AccordionItem value="item-1" className="border-border/20">
-                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground">
+                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground hover:text-[#1C3627] dark:hover:text-[#A3B18A] transition-colors">
                   How does Next Job Track organize my job applications?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
@@ -47,7 +47,7 @@ export default function Faq() {
               </AccordionItem>
 
               <AccordionItem value="item-2" className="border-border/20">
-                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground">
+                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground hover:text-[#1C3627] dark:hover:text-[#A3B18A] transition-colors">
                   Can I schedule interviews with meeting links and follow-ups?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
@@ -56,7 +56,7 @@ export default function Faq() {
               </AccordionItem>
 
               <AccordionItem value="item-3" className="border-border/20">
-                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground">
+                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground hover:text-[#1C3627] dark:hover:text-[#A3B18A] transition-colors">
                   How is my resume stored and is it secure?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
@@ -65,7 +65,7 @@ export default function Faq() {
               </AccordionItem>
 
               <AccordionItem value="item-4" className="border-border/20">
-                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground">
+                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground hover:text-[#1C3627] dark:hover:text-[#A3B18A] transition-colors">
                   Is Next Job Track completely free for job seekers?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
@@ -74,7 +74,7 @@ export default function Faq() {
               </AccordionItem>
 
               <AccordionItem value="item-5" className="border-border/20">
-                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground">
+                <AccordionTrigger className="text-left font-bold text-base hover:no-underline py-5 text-foreground hover:text-[#1C3627] dark:hover:text-[#A3B18A] transition-colors">
                   How does authentication work?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm leading-relaxed">

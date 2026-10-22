@@ -45,6 +45,16 @@ export function ResumeUploadModal({ isOpen, onClose }: ResumeUploadModalProps) {
     onClose()
   }
 
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen && !createMutation.isPending) {
+        handleClose()
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen, createMutation.isPending])
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!title.trim()) {
@@ -93,11 +103,18 @@ export function ResumeUploadModal({ isOpen, onClose }: ResumeUploadModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto animate-in fade-in">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto animate-in fade-in"
+      onClick={handleClose}
+    >
       <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="resume-upload-title"
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 15 }}
+        onClick={(e) => e.stopPropagation()}
         className="bg-white dark:bg-[#111D15] border border-border/20 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] my-auto"
       >
         {/* Header */}
@@ -107,12 +124,16 @@ export function ResumeUploadModal({ isOpen, onClose }: ResumeUploadModalProps) {
               <FileText className="w-5 h-5" />
             </div>
             <div className="min-w-0">
-              <h2 className="text-base sm:text-lg font-bold text-foreground truncate">Upload Resume</h2>
+              <h2 id="resume-upload-title" className="text-base sm:text-lg font-bold text-foreground truncate">
+                Upload Resume
+              </h2>
               <p className="text-xs text-muted-foreground truncate">Add a resume version to use for job applications</p>
             </div>
           </div>
           <button
+            type="button"
             onClick={handleClose}
+            aria-label="Close modal"
             className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors text-muted-foreground hover:text-foreground shrink-0 ml-2"
           >
             <X className="w-5 h-5" />
